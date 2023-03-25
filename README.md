@@ -15,14 +15,14 @@
 
 # Creating commands
 Croissant uses annotations to simplify the creation of commands.
-In this example, we will create a simple 'hello' command, that makes the bot print 'Hi there!' to the console when someone invokes it.
+In this example, we will create a simple 'hello' command that makes the bot print 'Hi there!' to the console when someone invokes it.
 
 ### The @Command annotation
 
-The @Command annotation is used to specify the following properties:
-- label, _must_ be specified
-- aliases (optional), defaults to an empty array of strings
-- description (optional), defaults to "Not available."
+The `@Command` annotation is used to specify the following properties:
+- label, which _must_ be specified
+- aliases (optional), which defaults to an empty array of strings
+- description (optional), which defaults to "Not available."
 
 ```java
 @Command("mycommand")
@@ -43,9 +43,9 @@ public static class MyCommand implements CommandExecutor {
 
 In order to tell the bot how to handle our commands, we need to create an instance of Croissant and use it to register them.
 To do that, you will need to edit the Bot class as follows:
-- override the onRegister() method
+- override the `onRegister()` method
 - create an instance of Croissant
-- inside the onUpdateReceived() method, call the handle() method provided by the library
+- inside the `onUpdateReceived()` method, call the `handle()` method provided by the library
 
 ```java
 public class MyBot extends TelegramLongPollingBot {
@@ -71,7 +71,7 @@ public class MyBot extends TelegramLongPollingBot {
 
 ### Registering commands
 
-You can use the registerCommand() method after creating an instance of the library to allow Croissant to handle commands.
+You can use the `registerCommand()` method after creating an instance of the library to allow Croissant to handle commands.
 
 ```java
 public class MyBot extends TelegramLongPollingBot {
@@ -92,10 +92,10 @@ public class MyBot extends TelegramLongPollingBot {
 
 ### The @CommandRetention annotation
 
-Some commands just don't belong to private chats. On the contrary, some others don't belong to groups.
-The @CommandRetention annotations allows you to specify the context a command is supposed to be used in.
+Some commands just don't belong in private chats, while others don't belong in groups.
+The `@CommandRetention` annotation allows you to specify the context in which a command is supposed to be used.
 
-By default, commands can be used both in private and in group chats.
+By default, commands can be used in both private and group chats.
 Let's edit the 'hello' command we created earlier so that it can only be executed in private chats.
 
 ```java
