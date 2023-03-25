@@ -1,6 +1,6 @@
 package me.stefano.croissant.command;
 
-import org.telegram.telegrambots.meta.api.objects.Update;
+import me.stefano.croissant.command.type.Command;import me.stefano.croissant.command.type.CommandPolicy;import me.stefano.croissant.command.type.CommandRetention;import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +38,7 @@ public class CommandHandler {
             var retention = retentionAnnotation.value();
             if (
                     retention == CommandPolicy.PRIVATE && chatId < 0 ||
-                    retention == CommandPolicy.GROUP && chatId >= 0
+                    retention == CommandPolicy.GROUPS && chatId >= 0
             ) return;
         }
 

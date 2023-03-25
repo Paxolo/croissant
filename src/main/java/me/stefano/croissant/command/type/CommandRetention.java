@@ -1,4 +1,4 @@
-package me.stefano.croissant.command;
+package me.stefano.croissant.command.type;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,10 +7,8 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Command {
+public @interface CommandRetention {
 
-    String value();
-    String[] aliases() default  {};
-    String description() default "Not available.";
+    CommandPolicy value();
 
 }
