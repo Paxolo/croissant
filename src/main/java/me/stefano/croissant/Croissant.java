@@ -4,24 +4,29 @@ import com.google.gson.Gson;
 import me.stefano.croissant.callback.CallbackHandler;
 import me.stefano.croissant.command.CommandExecutor;
 import me.stefano.croissant.command.CommandHandler;
+import me.stefano.croissant.message.Messenger;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 public class Croissant {
 
-
-    private static final Gson GSON = new Gson();
-
     private static Croissant instance;
 
-    private TelegramLongPollingBot bot;
+    public final Messenger MESSENGER;
+    public final Gson GSON;
+
+    private final TelegramLongPollingBot BOT;
+
     private CallbackHandler callbackHandler;
     private CommandHandler commandHandler;
 
     public Croissant(TelegramLongPollingBot bot) {
         instance = this;
 
-        this.bot = bot;
+        this.MESSENGER = new Messenger();
+        this.GSON = new Gson();
+
+        this.BOT = bot;
 
         this.callbackHandler = new CallbackHandler();
         this.commandHandler = new CommandHandler();
@@ -52,7 +57,7 @@ public class Croissant {
     }
 
     public TelegramLongPollingBot getBot() {
-        return this.bot;
+        return this.BOT;
     }
 
 }
