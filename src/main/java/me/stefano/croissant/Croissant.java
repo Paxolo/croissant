@@ -23,10 +23,10 @@ public class Croissant {
     public Croissant(TelegramLongPollingBot bot) {
         instance = this;
 
+        this.BOT = bot;
+
         this.MESSENGER = new Messenger();
         this.GSON = new Gson();
-
-        this.BOT = bot;
 
         this.callbackHandler = new CallbackHandler();
         this.commandHandler = new CommandHandler();
